@@ -1,0 +1,22 @@
+{
+  "name": "capstoneprojectpts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ranjith2012/Capstone_Project_PTS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ranjith2012/Capstone_Project_PTS/issues"
+  },
+  "homepage": "https://github.com/Ranjith2012/Capstone_Project_PTS#readme",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.17"
+  }
+}
