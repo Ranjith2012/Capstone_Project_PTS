@@ -1,15 +1,15 @@
 import { test ,expect} from '../fixtures/fixture';
 
 test.describe('Store Page', () => {
-    test.beforeEach(async ({ homepage }) => {
+    test.beforeEach(async ({ homepage, storepage }) => {
         await homepage.verifyUserNavigateToWebsite();
         await homepage.userSelecttheCity('cochin');
         await homepage.verifyUserOnHomePage();
         await homepage.hovertoWhatNewButton();
         await homepage.cilckOptionInDropdown('Store by RB'),
         await homepage.verifyTitle('Shop Biker Tees, Jackets & Gears – Store by RB');
+        await storepage.verifyuserOnStorePage();
     });
-
 
     test('Validate user on Store Page', async ({ storepage }) => {
         await storepage.verifyuserOnStorePage();
@@ -28,12 +28,28 @@ test.describe('Store Page', () => {
         });
     });
 
-    test.only(`Validate user select the size`,async({storepage})=>{
+    test(`Validate add product to the cart`,async({storepage, storeProductDetails})=>{
         await storepage.selectStoreproductOption('T-Shirt');
         await storepage.verifyOption('T-Shirts');
-        await storepage.userSelectSize('S');
-        await storepage.verifySelectedSize();
+        await storepage.userClickProduct();
+        await storeProductDetails.verifyuserOnStoreProductDetailsPage();
+        await storeProductDetails.userClickAddToCartButton();
+        await storeProductDetails.verifyUserEnterToThecart();
     });
 
+    test(`Verify user can enter into the cart section`,async({storepage, storeProductDetails})=>{
+        await storepage.userClickCartIcon();
+        await storeProductDetails.verifyUserEnterToThecart();
+    });
+
+    test(`Validate user can search product`,async({storepage, storeProductDetails})=>{
+        await storepage.userSearchTheProduct('unisex hoodie');
+        await storepage.verifySearchResult();
+    });
+
+    test(`Verify the "View All" button is working fine`,async({storepage, storeProductDetails})=>{
+        await storepage.userClickViewAllButton();
+        await storepage.verifyViewAllButton();
+    });
 
 });

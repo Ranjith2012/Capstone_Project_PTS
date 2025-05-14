@@ -5,12 +5,14 @@ export class BikeDetailsPageClass {
   private readonly searchBarForBikeType: Locator;
   private readonly sortByOption: Locator;
   private readonly soldOutBikes: Locator;
+  private readonly bookNowButton: Locator;
   
   constructor(public page: Page) {
     this.applyFilterBtn = this.page.locator('.apply-button button');
     this.searchBarForBikeType = this.page.getByPlaceholder('Search Bike Model');
     this.sortByOption = this.page.locator('.filter_row_height_in_large label');
     this.soldOutBikes = this.page.locator('.btn.right.fullWidthButton.white.font1.disabled');
+    this.bookNowButton = this.page.locator('.book_button');
   }
 
   async verifyuserOnBikeDetailsPage() {
@@ -51,4 +53,9 @@ export class BikeDetailsPageClass {
       await expect(this.page).toHaveTitle("Search | Royalbrothers.com")
     }
   }
+
+  async userSelectBookNow(){
+    await this.bookNowButton.first().click();
+  }
+
 }

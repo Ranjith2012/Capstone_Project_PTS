@@ -1,14 +1,18 @@
 import { test as base } from '@playwright/test';
-import { HomePageClass } from '../pages/HomePage';
-import { LoginPageClass } from '../pages/LoginPage';
-import { BikeDetailsPageClass } from '../pages/BikeDetailspage';
+import { HomePageClass } from '../pages/Homepage';
+import { LoginPageClass } from '../pages/Loginpage';
+import { BikeDetailsPageClass } from '../pages/Bikedetailspage';
 import { StorePageClass } from '../pages/Storepage';
+import { StoreProductDetailsClass } from '../pages/Storeproductdeatilspage';
+import { AdventureClass } from '../pages/adventureRBpage';
 
 type fixturesPages ={
     homepage : HomePageClass,
     loginpage : LoginPageClass,
     bikedetailspage : BikeDetailsPageClass,
     storepage : StorePageClass,
+    storeProductDetails : StoreProductDetailsClass;
+    adventurePage : AdventureClass;
 }
 export const test = base.extend<fixturesPages>({
   homepage: async ({ page }, use) => {
@@ -28,10 +32,19 @@ export const test = base.extend<fixturesPages>({
     await use(bikedetailspage);
   },
 
+  storeProductDetails: async ({ page }, use) => {
+    const storeProductDetails = new StoreProductDetailsClass(page);
+    await use(storeProductDetails);
+  },
 
   storepage: async ({ page }, use) => {
     const storepage = new StorePageClass(page);
     await use(storepage);
+  },
+
+  adventurePage: async ({ page }, use) => {
+    const adventurePage = new AdventureClass(page);
+    await use(adventurePage);
   },
 
 

@@ -22,3 +22,14 @@ test('Check the Sort By Functionality', async ({ homepage, bikedetailspage }) =>
     await bikedetailspage.selectSoldOutBikes();
   });
   
+
+  test(`Click "Book Now" redirected to booking page`, async ({ homepage, bikedetailspage, loginpage}) => {
+    await homepage.verifyUserNavigateToWebsite();
+    await homepage.userSelecttheCity('cochin');
+    await homepage.verifyUserOnHomePage();
+    await homepage.userSelectDateandTime();
+    await homepage.userClickSearchButton();
+    await bikedetailspage.verifyuserOnBikeDetailsPage();
+    await bikedetailspage.userSelectBookNow();
+    await loginpage.verifyuserOnLoginPage();
+  });

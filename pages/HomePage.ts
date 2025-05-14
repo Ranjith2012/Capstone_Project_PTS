@@ -11,6 +11,8 @@ export class HomePageClass {
   private readonly chatBotIcon: Locator;
   private readonly freameLocator: FrameLocator;
   private readonly offersButton: Locator;
+  private readonly signUpButton: Locator;
+  private readonly tariffSection: Locator;
 
   constructor(public page: Page) {
     this.searchBarForCity = this.page.locator('#autocomplete-input');
@@ -18,11 +20,13 @@ export class HomePageClass {
     this.loginButton = this.page.locator('//ul[@id="nav-mobile2"]//a[contains(text(), "Login")]');
     this.changeCityArrow = this.page.locator('#one');
     this.pickUpDate = this.page.locator('#pickup-date-other');
-    this.hamburgerMenu = this.page.locator('#svg-menu-container');
+    this.hamburgerMenu = this.page.locator('#svg-menu-container use');
     this.closeButtonHamburgerMenu = this.page.locator('#slide-out button');
     this.chatBotIcon = this.page.locator('#widget-open');
     this.freameLocator = this.page.frameLocator('#iframe_widget');
     this.offersButton = this.page.locator('#nav-mobile a[href*="offers"]');
+    this.signUpButton = this.page.locator("#nav-mobile2 a[href*='signup']");
+    this.tariffSection = this.page.locator("#nav-mobile a[href*='tariff']");
 
   }
 
@@ -78,6 +82,7 @@ export class HomePageClass {
   }
 
   async userClickhamburgerMenu() {
+    await this.page.waitForTimeout(2000);
     await this.hamburgerMenu.click();
   }
 
@@ -134,6 +139,14 @@ export class HomePageClass {
         break;
       }
     }
+  }
+
+  async userCilckSignUpButton() {
+    await this.signUpButton.click();
+  }
+
+  async userClickTariffSection(){
+    await this.tariffSection.click();
   }
 
 

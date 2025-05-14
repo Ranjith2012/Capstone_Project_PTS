@@ -1,0 +1,47 @@
+import {test} from '../fixtures/fixture';
+
+test.beforeEach(async ({homepage})=>{
+    await homepage.verifyUserNavigateToWebsite();
+    await homepage.userSelecttheCity('cochin');
+    await homepage.verifyUserOnHomePage();
+    await homepage.hovertoWhatNewButton();
+    await homepage.cilckOptionInDropdown('Adventures by RB'),
+    await homepage.verifyTitle('Adventures by RB');
+})
+
+test(`Validate user successfully reach adventure page`, async({adventurePage})=>{
+    await adventurePage.verifyUserOnAdventurePage();
+    await adventurePage.userSelectSlideOptions('adventure');
+})
+
+test(`Chatbot is responding to user`, async({adventurePage})=>{
+    await adventurePage.verifyUserOnAdventurePage();
+    await adventurePage.userSendCredentailsToChatbot("mani","M","mani@gmail.com");
+    await adventurePage.verifyTheChatBotRespondedToTheMessage();
+})
+
+test(`Check cart section navigation working fine`, async({adventurePage})=>{
+    await adventurePage.verifyUserOnAdventurePage();
+    await adventurePage.userClickCartIcon();
+    await adventurePage.verifyUserOnCartSection();
+})
+
+test(`User navigate to cart section and click "Shop Now" button`,async({adventurePage})=>{
+    await adventurePage.verifyUserOnAdventurePage();
+    await adventurePage.userClickCartIcon();
+    await adventurePage.verifyUserOnCartSection();
+    await adventurePage.userClickShopNowButton();
+    await adventurePage.verifyUserOnAdventurePage();
+})
+
+test(`Validate the search bar functionality`, async({adventurePage})=>{
+    await adventurePage.verifyUserOnAdventurePage();
+    await adventurePage.searchourStore('adventures');
+    await adventurePage.verifyUserOnSearchResultsPage();
+})
+
+test(`Verify user can navigate to bike rentalpage`, async ({ adventurePage,homepage }) => {
+    await adventurePage.verifyUserOnAdventurePage();
+    await adventurePage.userSelectSlideOptions('royal');
+    await homepage.verifyUserNavigateToWebsite();
+});
