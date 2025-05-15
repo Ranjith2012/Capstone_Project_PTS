@@ -123,7 +123,7 @@ export class HomePageClass {
     await this.page.waitForLoadState();
     await this.offersButton.hover();
     await this.page.locator(`//button[contains(text(),"What's new?")]`).hover();
-    await this.page.waitForTimeout(1000); 
+    await this.page.waitForTimeout(1000);
   }
 
   async cilckOptionInDropdown(option: string) {
@@ -145,42 +145,15 @@ export class HomePageClass {
     await this.signUpButton.click();
   }
 
-  async userClickTariffSection(){
+  async userClickTariffSection() {
     await this.tariffSection.click();
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // async userSelectpickUPandDropDate(pickup: string, drop: string) {
-    //   await this.pickUpDate.click();
-    //   const [pickupDay, pickupMonth] = pickup.split(' ');
-    //   const pickupmonth = await this.page.locator('//div[@aria-hidden="false"]//div[@class="picker__month"]');
-    //   while ((await pickupmonth.innerText()).toLowerCase() !== pickupMonth.toLowerCase()) {
-    //     await this.nextButton.click();
-    //   }
-    //   const pickupdate = await this.page.locator('//div[@aria-hidden="false"]//td/div[@class="picker__day picker__day--infocus"]');
-    //   const count = await pickupdate.count();
-    //   for (let i = 0; i < count; i++) {
-    //     const element = pickupdate.nth(i);
-    //     const text = await element.innerText();
-    //     if (text.toLowerCase().includes(pickupDay.toLowerCase())) {
-    //       await element.click();
-    //       break;
-    //     }
-    //   }
-    //   await this.page.pause();
-    // }
+  async userClickCancelAlert() {
+    this.page.once('dialog', async dialog => {
+      await dialog.dismiss()
+    });
+    await this.page.locator(`.footer-boxes a[href*='tel']`).first().click();
   }
+
+}

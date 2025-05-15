@@ -1,4 +1,5 @@
 import { test, expect } from '../fixtures/fixture';
+import { validMobileNumber, invalidMobileNumber } from '../utils/constants';
 
 test('Verify title of the page', async ({ homepage }) => {
   await homepage.verifyUserNavigateToWebsite();
@@ -85,26 +86,27 @@ test.describe('Home and Login Page Functionality', () => {
   test(`Verify user enter invalid phone number`, async ({ homepage, loginpage }) => {
     await homepage.userClickLoginButton();
     await loginpage.verifyuserOnLoginPage();
-    await loginpage.userEnterPhonenumber(897678787);
+    await loginpage.userEnterPhonenumber(invalidMobileNumber);
     expect(await loginpage.verifyPhoneNumber()).toBeTruthy();
   })
 
   test(`Verify user enter valid phone number`, async ({ homepage, loginpage }) => {
     await homepage.userClickLoginButton();
     await loginpage.verifyuserOnLoginPage();
-    await loginpage.userEnterPhonenumber(6383946987);
+    await loginpage.userEnterPhonenumber(validMobileNumber);
     expect(await loginpage.verifyPhoneNumber()).toBeFalsy();
   });
 
-  test(`Check Sign Up functionality`, async ({ homepage, loginpage }) => {
-    await homepage.userCilckSignUpButton();
+
+  test(`User select the country to enter phone number`, async ({ homepage, loginpage }) => {
+    await homepage.userClickLoginButton();
     await loginpage.verifyuserOnLoginPage();
+    await loginpage.userSelectCountry('United States');
   });
 
-  test.only(`Verify user can navigate to the "tariff" page`, async ({ homepage }) => {
-    await homepage.userClickTariffSection();
-    await homepage.verifyTitle('Rent Bikes in Calicut | 2 wheelers on rent in Calicut | Royal Brothers');
-  });
 
+  test(`Validate user cancel the alert`, async ({ homepage }) => {
+    await homepage.userClickCancelAlert();
+  });
 
 });

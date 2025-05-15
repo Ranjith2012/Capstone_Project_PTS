@@ -5,7 +5,7 @@ import { BikeDetailsPageClass } from '../pages/Bikedetailspage';
 import { StorePageClass } from '../pages/Storepage';
 import { StoreProductDetailsClass } from '../pages/Storeproductdeatilspage';
 import { AdventureClass } from '../pages/adventureRBpage';
-
+import { AdventureCheckoutClass } from '../pages/adventureCheckOutpage';
 type fixturesPages ={
     homepage : HomePageClass,
     loginpage : LoginPageClass,
@@ -13,6 +13,7 @@ type fixturesPages ={
     storepage : StorePageClass,
     storeProductDetails : StoreProductDetailsClass;
     adventurePage : AdventureClass;
+    adventureCheckoutPage : AdventureCheckoutClass;
 }
 export const test = base.extend<fixturesPages>({
   homepage: async ({ page }, use) => {
@@ -45,6 +46,11 @@ export const test = base.extend<fixturesPages>({
   adventurePage: async ({ page }, use) => {
     const adventurePage = new AdventureClass(page);
     await use(adventurePage);
+  },
+
+  adventureCheckoutPage: async ({ page }, use) => {
+    const adventureCheckoutPage = new AdventureCheckoutClass(page);
+    await use(adventureCheckoutPage);
   },
 
 

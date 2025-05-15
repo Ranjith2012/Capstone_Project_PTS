@@ -17,6 +17,6 @@ export class StoreProductDetailsClass {
     }
 
     async verifyUserEnterToThecart() {
-        await expect(await this.cartTitle).toBeVisible();
+        await expect(await this.cartTitle.first()).toBeVisible();
     }
 }
