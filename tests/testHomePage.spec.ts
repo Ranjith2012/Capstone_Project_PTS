@@ -105,7 +105,7 @@ test.describe('Home and Login Page Functionality', () => {
   });
 
 
-  test(`Validate user cancel the alert`, async ({ homepage }) => {
+  test(`Validate Phone number functionality with alerts`, async ({ homepage, loginpage }) => {
     await homepage.userClickCancelAlert();
   });
 
