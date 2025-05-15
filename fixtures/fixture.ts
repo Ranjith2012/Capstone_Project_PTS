@@ -1,9 +1,9 @@
 import { test as base } from '@playwright/test';
-import { HomePageClass } from '../pages/Homepage';
-import { LoginPageClass } from '../pages/Loginpage';
-import { BikeDetailsPageClass } from '../pages/Bikedetailspage';
+import { HomePageClass } from '../pages/homepage';
+import { LoginPageClass } from '../pages/loginpage';
+import { BikeDetailsPageClass } from '../pages/bikedetailspage';
 import { StorePageClass } from '../pages/Storepage';
-import { StoreProductDetailsClass } from '../pages/Storeproductdeatilspage';
+import { StoreProductDetailsClass } from '../pages/storeproductdeatilspage';
 import { AdventureClass } from '../pages/adventureRBpage';
 import { AdventureCheckoutClass } from '../pages/adventureCheckOutpage';
 type fixturesPages ={
