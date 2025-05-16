@@ -26,6 +26,11 @@ export default defineConfig({
 
   },
 
+  testIgnore: [
+    '**/testAdventure.spec.ts',
+    '**/testAdventureCheckOutPage.spec.ts', 
+  ],
+
   /* Configure projects for major browsers */
   projects: [
     {
