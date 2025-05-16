@@ -87,7 +87,7 @@ test.describe('Adventure Page Functionality', () => {
     });
 
 
-    test.only(`Validate user navigate to the adventure page Filter option`, async ({ adventurePage }) => { 
+    test(`Validate user navigate to the adventure page Filter option`, async ({ adventurePage }) => { 
         await adventurePage.verifyUserOnAdventurePage();
         await adventurePage.searchourStore('adventures');
         await adventurePage.verifyUserOnSearchResultsPage();

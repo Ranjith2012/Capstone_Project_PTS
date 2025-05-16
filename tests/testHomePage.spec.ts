@@ -63,7 +63,7 @@ test.describe('Home and Login Page Functionality', () => {
   test(`Validate What's new Functionality working fine`, async ({ homepage }) => {
     await homepage.hovertoWhatNewButton();
     await homepage.cilckOptionInDropdown('Adventures by RB');
-    await homepage.verifyTitle('Adventures by RB');
+    await homepage.verifyTitle('Create an Ecommerce Website and Sell Online! Ecommerce Software by Shopify');
   });
 
   test('Validate SortBy B correctly switching to the tab', async ({ homepage }) => {

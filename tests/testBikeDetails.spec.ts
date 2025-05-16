@@ -73,7 +73,7 @@ test.describe('Bike Details Page Functionality', () => {
     { sidebarOption: 'Location Related' },
   ];
   subscriptionTestData.forEach(({ sidebarOption }) => {
-    test.only(`Validate RBX subscription for ${sidebarOption}`, async ({ homepage, bikedetailspage }) => {
+    test(`Validate RBX subscription for ${sidebarOption}`, async ({ homepage, bikedetailspage }) => {
       await bikedetailspage.userClickRBXSubscription();
       await homepage.verifyTitle("Monthly Bike Rentals | Calicut");
       await bikedetailspage.userClickSidebarOption(sidebarOption);

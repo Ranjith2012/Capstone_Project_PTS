@@ -1,6 +1,6 @@
 import { test as base } from '@playwright/test';
 import { HomePageClass } from '../pages/homepage';
-import { LoginPageClass } from '../pages/loginpage';
+import { LoginPageClass } from '../pages/loginpages';
 import { BikeDetailsPageClass } from '../pages/bikedetailspage';
 import { StorePageClass } from '../pages/Storepage';
 import { StoreProductDetailsClass } from '../pages/storeproductdeatilspage';
@@ -22,27 +22,22 @@ export const test = base.extend<fixturesPages>({
     await homepage.verifyUserOnCitySelectionPage();
     await use(homepage);
   },
-
   loginpage: async ({ page }, use) => {
     const loginpage = new LoginPageClass(page);
     await use(loginpage);
   },
-
   bikedetailspage: async ({ page }, use) => {
     const bikedetailspage = new BikeDetailsPageClass(page);
     await use(bikedetailspage);
   },
-
   storeProductDetails: async ({ page }, use) => {
     const storeProductDetails = new StoreProductDetailsClass(page);
     await use(storeProductDetails);
   },
-
   storepage: async ({ page }, use) => {
     const storepage = new StorePageClass(page);
     await use(storepage);
   },
-
   adventurePage: async ({ page }, use) => {
     const adventurePage = new AdventureClass(page);
     await use(adventurePage);

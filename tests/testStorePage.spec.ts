@@ -74,7 +74,6 @@ test.describe('Store Page', () => {
         await storeProductDetails.verifyUserEnterToThecart();
     });
 
-
     test(`Validate sortBy option functionality 'Price, low to high'`, async ({ storepage }) => {
         await storepage.verifyuserOnStorePage();
         await storepage.selectStoreproductOption('Hoodies');
