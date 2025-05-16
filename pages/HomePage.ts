@@ -32,6 +32,7 @@ export class HomePageClass {
 
   async gotoWebsite(url: string) {
     await this.page.goto(url);
+    
   }
 
   async verifyUserNavigateToWebsite() {
